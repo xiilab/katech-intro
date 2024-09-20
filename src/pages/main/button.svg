@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <clipPath id="e4g4319dua">
+            <path data-name="사각형 16" transform="translate(596 899)" style="fill:#fff;stroke:#707070" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="[icon] 화살표">
+        <g data-name="마스크 그룹 10" transform="translate(-592 -895)" style="clip-path:url(#e4g4319dua)">
+            <g data-name="Group 513">
+                <path data-name="패스 3" d="M1 10h13.023" transform="translate(596.488 897.985)" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+                <path data-name="패스 4" d="m14 1 5.328 5.328" transform="translate(591.183 901.657)" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+            </g>
+        </g>
+        <path data-name="사각형 17" style="fill:none" d="M0 0h24v24H0z"/>
+    </g>
+</svg>

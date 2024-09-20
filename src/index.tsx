@@ -1,14 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./pages/main";
+import reportWebVitals from "./reportWebVitals";
+import tw, { GlobalStyles as BaseStyles } from "twin.macro";
+import { Global, css } from "@emotion/react";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+
+const globalStyle = css`
+  html {
+    ${tw`antialiased w-full h-full`}
+    body {
+      ${tw`w-full h-full`}
+      #root {
+        ${tw`w-full h-full`}
+      }
+    }
+  }
+`;
+
 root.render(
   <React.StrictMode>
+    <BaseStyles />
+    <Global styles={globalStyle} />
     <App />
   </React.StrictMode>
 );
