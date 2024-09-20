@@ -1,12 +1,15 @@
 import tw, { styled } from "twin.macro";
-import leht from "./left-bg.png";
-import right from "./right-bg.png";
 import icon from "./button.svg";
 
+import leht from "./left-bg.png";
+import right from "./right-bg.png";
 import lehtFull from "./left-bg-full.png";
 import rightFull from "./right-bg-full.png";
 
 import { keyframes } from "@emotion/react";
+
+// 이미지에 url 삽입
+type IMAGE = { img?: string; imgFull?: string };
 
 const boxWidth = keyframes`
   0% {
@@ -128,7 +131,7 @@ export const Body = styled("div")`
   }
 `;
 
-export const Left = styled("div")`
+export const Left = styled("div")<IMAGE>`
   ${tw`flex h-full flex-col items-center text-marine`}
   background-image: url(${leht});
   /* 액션 이벤트 동작시 처리 */
@@ -153,7 +156,7 @@ export const Left = styled("div")`
     border-bottom: 1px solid rgba(0, 30, 96, 0.3);
   }
 `;
-export const Right = styled("div")`
+export const Right = styled("div")<IMAGE>`
   ${tw`flex w-1/2 h-full flex-col items-center text-white`}
   background-image: url(${right});
   &.nomal {

@@ -1,6 +1,10 @@
 import React from "react";
 import * as Style from "./styles";
 import Header from "compoents/header";
+import left from "./left-bg.png";
+import right from "./right-bg.png";
+import leftFull from "./left-bg-full.png";
+import rightFull from "./right-bg-full.png";
 
 type ACTION_TYPE = "action" | "nomal";
 
@@ -43,6 +47,8 @@ function App() {
           className={onLeft}
           onMouseEnter={sizeUp}
           onMouseLeave={sizeDown}
+          img={left}
+          imgFull={leftFull}
         >
           <h1 className="title">Cloud Server</h1>
           <h3 className="description">
@@ -69,6 +75,8 @@ function App() {
           className={onRight}
           onMouseEnter={sizeUp}
           onMouseLeave={sizeDown}
+          img={right}
+          imgFull={rightFull}
         >
           <h1 className="title">Cloud PC</h1>
           <h3 className="description">
