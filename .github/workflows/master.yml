@@ -1,6 +1,6 @@
 name: 배포
 on:
-  pull_request:
+  push:
     branches: ['master']
 
 jobs:
