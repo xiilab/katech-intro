@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "https://xiilab.github.io/katech-intro/static/css/main.f855e6bc.css",
-    "main.js": "https://xiilab.github.io/katech-intro/static/js/main.24b97333.js",
+    "main.js": "https://xiilab.github.io/katech-intro/static/js/main.f16b38d1.js",
     "static/js/453.61bc0854.chunk.js": "https://xiilab.github.io/katech-intro/static/js/453.61bc0854.chunk.js",
-    "static/media/logo.svg": "https://xiilab.github.io/katech-intro/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/left-bg.png": "https://xiilab.github.io/katech-intro/static/media/left-bg.f347905e322cc0bfa423.png",
+    "static/media/right-bg.png": "https://xiilab.github.io/katech-intro/static/media/right-bg.6f27a31472acfdb76731.png",
+    "static/media/logo.png": "https://xiilab.github.io/katech-intro/static/media/logo.c7d2d860c01e6ea0101d.png",
+    "static/media/button.svg": "https://xiilab.github.io/katech-intro/static/media/button.488f69b49804203f47de9c054ec9e508.svg",
     "index.html": "https://xiilab.github.io/katech-intro/index.html",
-    "main.f855e6bc.css.map": "https://xiilab.github.io/katech-intro/static/css/main.f855e6bc.css.map",
-    "main.24b97333.js.map": "https://xiilab.github.io/katech-intro/static/js/main.24b97333.js.map",
+    "main.f16b38d1.js.map": "https://xiilab.github.io/katech-intro/static/js/main.f16b38d1.js.map",
     "453.61bc0854.chunk.js.map": "https://xiilab.github.io/katech-intro/static/js/453.61bc0854.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.24b97333.js"
+    "static/js/main.f16b38d1.js"
   ]
 }
