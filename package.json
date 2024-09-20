@@ -1,7 +1,7 @@
 {
   "name": "katech-intro-page",
   "version": "0.1.0",
-  "homepage": "https://xiilab.github.io/katech-intro",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -21,6 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:deploy": "PUBLIC_URL=https://xiilab.github.io/katech-intro react-scripts build",
     "test": "react-scripts test",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
