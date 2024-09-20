@@ -1,0 +1,52 @@
+name: 배포
+on:
+  pull_request:
+    branches: ['master']
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: CI=false npm run build
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r html.zip build
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ![image](https://jjalbang.today/files/jjalbox/2016/09/20160901_57c790147b051.gif)
+            - 깃헙 액션에서 자동으로 생성됨
+          draft: true
+          prerelease: false
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./html.zip
+          asset_name: html.zip
+          asset_content_type: application/zip
+      - name: Publish release
+        uses: StuYarrow/publish-release@v1.1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          id: ${{ steps.create_release.outputs.id }}
