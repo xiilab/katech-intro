@@ -1,6 +1,7 @@
 import React from "react";
 import * as Style from "./styles";
 import Header from "compoents/header";
+
 import left from "./left-bg.png";
 import right from "./right-bg.png";
 import leftFull from "./left-bg-full.png";
@@ -13,8 +14,8 @@ import rightFullRaw from "./right-bg-raw-full.jpg";
 type ACTION_TYPE = "action" | "nomal";
 
 function App() {
-  const [onLeft, setOnLeft] = React.useState<ACTION_TYPE>("action");
-  const [onRight, setOnRight] = React.useState<ACTION_TYPE>("action");
+  const [onLeft, setOnLeft] = React.useState<ACTION_TYPE>("nomal");
+  const [onRight, setOnRight] = React.useState<ACTION_TYPE>("nomal");
 
   const useProgressiveImage = (src: string) => {
     const [sourceLoaded, setSourceLoaded] = React.useState<string>();
@@ -61,7 +62,7 @@ function App() {
         <Style.Left
           data-cy="left"
           className={onLeft}
-          onMouseEnter={sizeUp}
+          onMouseUp={sizeUp}
           onMouseLeave={sizeDown}
           img={useProgressiveImage(left) || leftRaw}
           imgFull={useProgressiveImage(leftFull) || leftFullRaw}
@@ -89,7 +90,7 @@ function App() {
         <Style.Right
           data-cy="right"
           className={onRight}
-          onMouseEnter={sizeUp}
+          onMouseUp={sizeUp}
           onMouseLeave={sizeDown}
           img={useProgressiveImage(right) || rightRaw}
           imgFull={useProgressiveImage(rightFull) || rightFullRaw}
