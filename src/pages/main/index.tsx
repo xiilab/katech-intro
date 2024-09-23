@@ -85,7 +85,9 @@ function App() {
               <p>CLI 기반 키보드 입력</p>
             </div>
           </div>
-          <button onClick={() => window.location.href = "10.10.50.51"}>Server 바로가기</button>
+          <button onClick={() => (window.location.href = "//10.10.50.51")}>
+            Server 바로가기
+          </button>
         </Style.Left>
         <Style.Right
           data-cy="right"
@@ -114,7 +116,9 @@ function App() {
               <p>GUI기반 마우스, 키보드 입력</p>
             </div>
           </div>
-          <button onClick={() => window.location.href = "10.10.50.140"}>PC 바로가기</button>
+          <button onClick={() => (window.location.href = "//10.10.50.140")}>
+            PC 바로가기
+          </button>
         </Style.Right>
       </Style.Body>
     </>
