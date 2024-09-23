@@ -1,32 +1,44 @@
 import tw, { styled } from "twin.macro";
 import icon from "./button.svg";
 
-import leht from "./left-bg.png";
-import right from "./right-bg.png";
-import lehtFull from "./left-bg-full.png";
-import rightFull from "./right-bg-full.png";
-
 import { keyframes } from "@emotion/react";
 
 // 이미지에 url 삽입
 type IMAGE = { img?: string; imgFull?: string };
 
-const boxWidth = keyframes`
+const boxWidthLeft = keyframes`
   0% {
     /* width: 0%; */
     width: 1280px;
+    padding-left: 0px;
   }
   100% {
     ${tw`w-full`}
+    padding-left: 300px;
+  }
+`;
+const boxWidthRight = keyframes`
+  0% {
+    /* width: 0%; */
+    width: 1280px;
+    padding-left: 0px;
+  }
+  100% {
+    ${tw`w-full`}
+    padding-right: 300px;
   }
 `;
 const boxHeight = keyframes`
   0% {
     /* width: 0%; */
     height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   100% {
     height: 95px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 `;
 
@@ -133,15 +145,16 @@ export const Body = styled("div")`
 
 export const Left = styled("div")<IMAGE>`
   ${tw`flex h-full flex-col items-center text-marine`}
-  background-image: url(${leht});
+  background-image: url(${({ img }) => img});
   /* 액션 이벤트 동작시 처리 */
   &.nomal {
     ${tw`w-1/2`}
   }
   &.action {
     ${tw`w-full`}
-    animation: ${boxWidth} 0.5s;
-    background-image: url(${lehtFull});
+    animation: ${boxWidthLeft} 0.5s;
+    background-image: url(${({ imgFull }) => imgFull});
+    padding-left: 300px;
   }
   background-repeat: no-repeat;
   background-position: left 100% center;
@@ -158,15 +171,16 @@ export const Left = styled("div")<IMAGE>`
 `;
 export const Right = styled("div")<IMAGE>`
   ${tw`flex w-1/2 h-full flex-col items-center text-white`}
-  background-image: url(${right});
+  background-image: url(${({ img }) => img});
   &.nomal {
     ${tw`w-1/2`}
   }
   /* 액션 이벤트 동작시 처리 */
   &.action {
     ${tw`w-full`}
-    animation: ${boxWidth} 0.5s;
-    background-image: url(${rightFull});
+    animation: ${boxWidthRight} 0.5s;
+    background-image: url(${({ imgFull }) => imgFull});
+    padding-right: 300px;
   }
   background-repeat: no-repeat;
   background-position: center center;

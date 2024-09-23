@@ -5,12 +5,28 @@ import left from "./left-bg.png";
 import right from "./right-bg.png";
 import leftFull from "./left-bg-full.png";
 import rightFull from "./right-bg-full.png";
+import leftRaw from "./left-bg-raw.jpg";
+import rightRaw from "./right-bg-raw.jpg";
+import leftFullRaw from "./left-bg-raw-full.jpg";
+import rightFullRaw from "./right-bg-raw-full.jpg";
 
 type ACTION_TYPE = "action" | "nomal";
 
 function App() {
   const [onLeft, setOnLeft] = React.useState<ACTION_TYPE>("action");
   const [onRight, setOnRight] = React.useState<ACTION_TYPE>("action");
+
+  const useProgressiveImage = (src: string) => {
+    const [sourceLoaded, setSourceLoaded] = React.useState<string>();
+
+    React.useEffect(() => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => setSourceLoaded(src);
+    }, [src]);
+
+    return sourceLoaded;
+  };
 
   /**
    * 마우스 커서가 위치 할때 이벤트 처리
@@ -47,8 +63,8 @@ function App() {
           className={onLeft}
           onMouseEnter={sizeUp}
           onMouseLeave={sizeDown}
-          img={left}
-          imgFull={leftFull}
+          img={useProgressiveImage(left) || leftRaw}
+          imgFull={useProgressiveImage(leftFull) || leftFullRaw}
         >
           <h1 className="title">Cloud Server</h1>
           <h3 className="description">
@@ -75,8 +91,8 @@ function App() {
           className={onRight}
           onMouseEnter={sizeUp}
           onMouseLeave={sizeDown}
-          img={right}
-          imgFull={rightFull}
+          img={useProgressiveImage(right) || rightRaw}
+          imgFull={useProgressiveImage(rightFull) || rightFullRaw}
         >
           <h1 className="title">Cloud PC</h1>
           <h3 className="description">
