@@ -50,7 +50,7 @@ export const Body = styled("div")`
     flex-direction: row;
     padding: 20px 21px 20px 21px;
     gap: 39px;
-    width: 300px;
+    width: 360px;
     height: 95px;
     overflow-y: hidden;
     &.nomal {
@@ -60,6 +60,7 @@ export const Body = styled("div")`
       animation: ${boxHeight} 0.5s;
     }
     div.item {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;

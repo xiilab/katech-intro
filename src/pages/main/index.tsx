@@ -35,6 +35,7 @@ function App() {
    */
   const sizeUp = (e: React.MouseEvent<HTMLDivElement>) => {
     const name = e.currentTarget.attributes.getNamedItem("data-cy")?.value;
+    
     if (name === "left") {
       setOnLeft("action");
     } else {
@@ -67,25 +68,31 @@ function App() {
           img={useProgressiveImage(left) || leftRaw}
           imgFull={useProgressiveImage(leftFull) || leftFullRaw}
         >
-          <h1 className="title">Cloud Server</h1>
+          <h1 className="title">SW as a Service</h1>
           <h3 className="description">
             사용자 목적에 맞는 사양의 가상 서버 생성
           </h3>
           <div className={`infomation ${onLeft}`}>
             <div className="item">
-              <h3>제공 OS</h3>
-              <p>Linux 계열 서버 시스템</p>
+              <h3>사용자</h3>
+              <p>기관 사용자</p>
+              <p>무료 컴퓨팅 자원</p>
+              <p>제공</p>
             </div>
             <div className="item">
-              <h3>제공 목적</h3>
-              <p>SW 개발 및 서비스 제공</p>
+              <h3>판매자</h3>
+              <p>기관 사용자</p>
+              <p>개발 결과물</p>
+              <p>판매/실증</p>
             </div>
             <div className="item">
-              <h3>사용자 환경</h3>
-              <p>CLI 기반 키보드 입력</p>
+              <h3>상품 예</h3>
+              <p>Database</p>
+              <p>Kafka</p>
+              <p>Grafana 등</p>
             </div>
           </div>
-          <button onClick={() => window.location.href = "10.10.50.51"}>Server 바로가기</button>
+          <button onClick={() => window.location.href = "https://app.bigdata-car.kr"}>APP마켓 바로가기</button>
         </Style.Left>
         <Style.Right
           data-cy="right"
@@ -95,26 +102,30 @@ function App() {
           img={useProgressiveImage(right) || rightRaw}
           imgFull={useProgressiveImage(rightFull) || rightFullRaw}
         >
-          <h1 className="title">Cloud PC</h1>
+          <h1 className="title">API as a Service</h1>
           <h3 className="description">
-            국가 보안 요구사항을 준수하는 높은 보안성
+            AI 모델 및 알고리즘을 API 형태 제공 서비스
           </h3>
-          <p>(국가정보원 보안기능확인서 획득, 2022.06월)</p>
           <div className={`infomation ${onRight}`}>
             <div className="item">
-              <h3>제공 OS</h3>
-              <p>Linux 계열 서버 시스템</p>
+              <h3>사용자</h3>
+              <p>전체 사용자</p>
+              <p>무료/유료API 제공</p>
             </div>
             <div className="item">
-              <h3>제공 목적</h3>
-              <p>시뮬레이션 및 데이터 분석</p>
+              <h3>판매자</h3>
+              <p>기관 가입자</p>
+              <p>개발 결과물</p>
+              <p>판매/실증</p>
             </div>
             <div className="item">
-              <h3>사용자 환경</h3>
-              <p>GUI기반 마우스, 키보드 입력</p>
+              <h3>상품 예</h3>
+              <p>OpenAI</p>
+              <p>차량 탐지</p>
+              <p>정보 조회 등</p>
             </div>
           </div>
-          <button onClick={() => window.location.href = "10.10.50.140"}>PC 바로가기</button>
+          <button onClick={() => window.location.href = "https://api.bigdata-car.kr"}>API마켓 바로가기</button>
         </Style.Right>
       </Style.Body>
     </>

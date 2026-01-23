@@ -18,11 +18,31 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
+      - run: npm ci --force
       - run: CI=false npm run build
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r html.zip build
+      - name: Build nginx docker image
+        run: |
+          docker build \
+            -t katech-intro-front:${{ github.ref_name }} \
+            -t katech-intro-front:latest \
+            .
+      - name: Docker login
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+      - name: Tag & push docker image
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        run: |
+          docker tag katech-intro-front:${{ github.ref_name }} $DOCKER_USER/katech-intro-front:${{ github.ref_name }}
+          docker tag katech-intro-front:${{ github.ref_name }} $DOCKER_USER/katech-intro-front:latest
+          docker push $DOCKER_USER/katech-intro-front:${{ github.ref_name }}
+          docker push $DOCKER_USER/katech-intro-front:latest
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
